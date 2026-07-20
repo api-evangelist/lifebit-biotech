@@ -1,0 +1,57 @@
+generated: '2026-07-19'
+method: derived
+source: https://github.com/lifebit-ai/cloudos-cli
+docs: https://lifebit-ai.github.io/cloudos-cli/getting_started.html
+notes: >-
+  Lifebit publishes no OpenAPI description for the CloudOS API, so the
+  derive-authentication.py pass had no spec to read. This profile is derived
+  from the first-party open-source client (cloudos-cli): the request headers it
+  sets, the credential handling in cloudos_cli/configure, and the
+  authorisation errors it raises. Verified live: an unauthenticated GET to
+  https://cloudos.lifebit.ai/api/v1/users/me returns HTTP 401.
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+  oauth2_flows: []
+  oauth2: false
+  openid_connect: false
+  mutual_tls: false
+schemes:
+- name: apikey
+  type: apiKey
+  in: header
+  parameter_name: apikey
+  description: >-
+    The primary CloudOS API credential. A workspace API key is issued from the
+    Lifebit Platform UI and sent on every request as an `apikey` header. The CLI
+    accepts it via --apikey or reads it from a named profile in
+    ~/.cloudos/credentials.
+  scope_model: >-
+    Keys are workspace-scoped rather than scope-scoped. Requests additionally
+    carry a teamId query parameter identifying the workspace, and the API
+    rejects cross-workspace access. There is no OAuth scope surface.
+  sources:
+  - https://github.com/lifebit-ai/cloudos-cli/blob/main/cloudos_cli/clos.py
+- name: cromwell_token
+  type: http
+  scheme: bearer
+  description: >-
+    A separate bearer token used only for the Cromwell/WDL subsystem, sent as
+    `Authorization: Bearer <token>` when driving the Cromwell server endpoints
+    under /api/v1/cromwell.
+  sources:
+  - https://github.com/lifebit-ai/cloudos-cli/blob/main/cloudos_cli/clos.py
+credential_storage:
+  file: ~/.cloudos/credentials
+  managed_by: cloudos configure
+  supports_named_profiles: true
+authorization_errors:
+- status: 401
+  meaning: Missing or invalid apikey.
+- status: 403
+  meaning: >-
+    Authenticated but not permitted — the requested resource is outside the
+    workspace named by teamId, or the job belongs to another user.
