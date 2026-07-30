@@ -1,20 +1,85 @@
 aid: lifebit-biotech
 name: Lifebit Biotech
-description: Lifebit Biotech is a company surfaced as a portfolio company of techstars and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: 'Lifebit Biotech Ltd is a London-founded (2017) health-data infrastructure
+  company that builds federated Trusted Research Environments (TREs) for population-scale
+  biomedical research and sovereign health AI. Rather than centralising sensitive
+  patient data, Lifebit sends compute to the data: analyses execute inside each
+  participating custodian''s own infrastructure and every proposed output passes
+  through an automated airlock (the "sixth safe") controlled by the data custodian
+  rather than the vendor. The commercial platform, CloudOS, orchestrates Nextflow
+  and WDL/Cromwell pipelines, interactive analysis sessions, projects, job queues
+  and federated datasets, and exposes a REST API at https://cloudos.lifebit.ai/api
+  (v1/v2/v3) authenticated with an apikey header. Lifebit publishes a first-party
+  open-source Python client and command line interface, cloudos-cli, plus a GitHub
+  Action wrapper. Product surface includes the federated TRE, Airlock Tower output
+  disclosure control, an agentic federated TRE, AI-automated OMOP CDM v5.4
+  harmonisation, federated learning, a trusted data lakehouse and a trusted data
+  marketplace. Publicly disclosed deployments include Genomics England, the US NIH
+  National Library of Medicine, CanPath, Singapore Synapxe, Boehringer Ingelheim,
+  Flatiron Health and 23andMe.'
 url: https://raw.githubusercontent.com/api-evangelist/lifebit-biotech/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://lifebit.ai/wp-content/uploads/2025/04/favicon.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Health
+- Genomics
+- Bioinformatics
+- Federated Learning
+- Trusted Research Environment
+- Data Governance
+- Life Sciences
+- Sovereign AI
+- OMOP
+- Workflow Orchestration
+apis:
+- aid: lifebit-biotech:cloudos-api
+  name: Lifebit CloudOS API
+  description: 'The REST API behind the Lifebit Platform (CloudOS): manage workspace
+    projects, job queues, workflows/pipelines, Nextflow and Cromwell/WDL job
+    submission and monitoring, interactive analysis sessions, and datasets/files
+    across S3 and Azure Blob storage. Requests are scoped to a workspace with a
+    teamId query parameter and authenticated with an apikey request header. Version
+    prefixes /api/v1, /api/v2 and /api/v3 are in concurrent use. Lifebit does not
+    publish an OpenAPI description; the operation surface catalogued here was
+    derived from the first-party open-source client, cloudos-cli.'
+  humanURL: https://lifebit-ai.github.io/cloudos-cli/
+  baseURL: https://cloudos.lifebit.ai/api/v1
+  tags:
+  - Genomics
+  - Workflow Orchestration
+  - Bioinformatics
+  - Jobs
+  - Datasets
+  properties:
+  - type: Authentication
+    url: authentication/lifebit-biotech-authentication.yml
+  - type: Conventions
+    url: conventions/lifebit-biotech-conventions.yml
+  - type: ErrorCatalog
+    url: errors/lifebit-biotech-problem-types.yml
+  - type: CLI
+    url: cli/lifebit-biotech-cli.yml
+  - type: SourceCode
+    url: https://github.com/lifebit-ai/cloudos-cli
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +88,72 @@ maintainers:
 common:
 - type: Website
   url: https://lifebit.ai/
+- type: DeveloperPortal
+  url: https://lifebit-ai.github.io/cloudos-cli/
+- type: Documentation
+  url: https://lifebit-ai.github.io/cloudos-cli/
+- type: APIReference
+  url: https://lifebit-ai.github.io/cloudos-cli/cli.html
+- type: GettingStarted
+  url: https://lifebit-ai.github.io/cloudos-cli/getting_started.html
+- type: GitHubOrganization
+  url: https://github.com/lifebit-ai
+- type: Blog
+  url: https://lifebit.ai/blog/
+- type: Support
+  url: https://lifebit.ai/contact-us/
+- type: Pricing
+  url: https://lifebit.ai/pricing/
+- type: Login
+  url: https://cloudos.lifebit.ai/
+- type: PrivacyPolicy
+  url: https://lifebit.ai/privacy-policy/
+- type: TrustCenter
+  url: security/lifebit-biotech-trust-center.yml
+- type: Compliance
+  url: https://lifebit.ai/trust-center/
+- type: CaseStudies
+  url: https://lifebit.ai/case-studies/
+- type: Publications
+  url: https://lifebit.ai/publications/
+- type: WhitePapers
+  url: https://lifebit.ai/white-papers/
+- type: Glossary
+  url: https://lifebit.ai/glossary/
+- type: Twitter
+  url: https://x.com/lifebitAI
+- type: LinkedIn
+  url: https://www.linkedin.com/company/lifebit-ai/
+- type: YouTube
+  url: https://www.youtube.com/channel/UCZD4p-fsOh6AUgRvMl1RNfQ
+- type: Packages
+  url: packages/lifebit-biotech-packages.yml
+- type: SDKs
+  url: packages/lifebit-biotech-packages.yml
+- type: CLI
+  url: cli/lifebit-biotech-cli.yml
+- type: LLMsTxt
+  url: llms/lifebit-biotech-llms.txt
+- type: WellKnown
+  url: well-known/lifebit-biotech-well-known.yml
+- type: MCPServer
+  url: mcp/lifebit-biotech-mcp.yml
+- type: Authentication
+  url: authentication/lifebit-biotech-authentication.yml
+- type: Conventions
+  url: conventions/lifebit-biotech-conventions.yml
+- type: ErrorCatalog
+  url: errors/lifebit-biotech-problem-types.yml
+- type: Conformance
+  url: conformance/lifebit-biotech-conformance.yml
+- type: Lifecycle
+  url: lifecycle/lifebit-biotech-lifecycle.yml
+- type: ChangeLog
+  url: changelog/lifebit-biotech-changelog.yml
+- type: DomainSecurity
+  url: security/lifebit-biotech-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
