@@ -1,0 +1,55 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://lifebit.ai/ai/faq.json",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Lifebit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lifebit is a federated Trusted Research Environment (TRE) platform for sovereign health AI. It enables approved researchers to analyse sensitive health data across multiple institutions without any raw participant records leaving the data custodian's infrastructure. Only aggregate, airlock-reviewed results ever cross the environment boundary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a federated Trusted Research Environment (TRE)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A federated TRE is a secure environment where researchers send code to each participating data custodian's infrastructure rather than pulling data into a central platform. Raw data never moves. Only aggregate, airlock-reviewed results leave the environment. The pattern is the architectural default under the UK ONS Five Safes framework and the European Health Data Space (EHDS) Article 50 regime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Sovereign AI mean in healthcare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sovereign AI in healthcare means the compute, data, and model weights remain within the legal and physical jurisdiction of the data custodian. Every governance, compliance, and audit control is exercisable by the custodian without vendor permission. Federated Trusted Research Environments are the primary architectural pattern that delivers this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Lifebit's architecture different from a centralised SaaS TRE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In a centralised SaaS TRE, data is copied into the vendor's cloud infrastructure. Approved researchers can typically download derived outputs to local machines under a data-use agreement. In a federated TRE, data stays at each custodian's infrastructure. Approved researchers cannot download raw or derived participant records — every output must pass through an automated airlock reviewed by the custodian, not the vendor. The May 2026 UK Biobank incident is a public example of the failure mode structurally impossible in a federated TRE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Airlock Tower?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Airlock Tower is Lifebit's automated output-disclosure product, launched 28 April 2026. It inspects every proposed output before it leaves the secure environment: approves aggregate statistics; blocks anything that would allow participant re-identification. It is the automated implementation of the sixth safe in the Five Safes + airlock framework."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What patent does Lifebit hold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "US Patent 12,519,781 — Federated Computational Discovery Across Heterogeneous Biomedical Data. It covers the core technology that enables population-scale biomedical analysis without moving raw records between custodians."
+      }
+    }
+  ]
+}

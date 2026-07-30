@@ -1,0 +1,80 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/lifebit-ai/cloudos-cli/blob/main/CHANGELOG.md
+notes: >-
+  Lifebit publishes no changelog for the CloudOS API itself. The nearest dated,
+  structured release record is the CHANGELOG of the first-party open-source
+  client, cloudos-cli, which tracks the client and — because the client is a
+  thin wrapper — much of the API surface with it. Recent window only; the
+  linked file is the source of truth.
+scheme: semver
+release_tooling: commitizen (.cz.toml)
+current_version: 2.95.0
+current_version_date: '2026-06-30'
+categories:
+- Breaking
+- Feat
+- Fix
+- Patch
+entries:
+- version: 2.95.0
+  date: '2026-06-30'
+  breaking: true
+  highlights:
+  - Removes the `cloudos datasets link` command; linking files and folders to an
+    interactive analysis moves to `cloudos interactive-session link` or the
+    `--link` option of `cloudos interactive-session create`.
+- version: 2.94.1
+  date: '2026-06-29'
+  breaking: false
+  highlights:
+  - Corrects the import for `cloudos interactive-session link` in docs building.
+- version: 2.94.0
+  date: '2026-06-23'
+  breaking: false
+  highlights:
+  - Adds `cloudos queue create` with preset templates such as `standard-stable`
+    and `standard-gpu`.
+  - Adds `--set-default` to mark a new queue as the workspace default.
+- version: 2.93.1
+  date: '2026-06-12'
+  breaking: false
+  highlights:
+  - Removes app sessions from the interactive-session listing.
+- version: 2.93.0
+  date: '2026-05-28'
+  breaking: true
+  highlights:
+  - Moves `cloudos link` into the interactive-session module as
+    `cloudos interactive-session link`.
+  - File Explorer paths now infer the project name from the first path segment.
+  - Removes `--mount` from `cloudos interactive-session create`.
+  - Introduces `--copy` as an optional flag of `--link`.
+- version: 2.92.0
+  date: '2026-06-23'
+  breaking: false
+  highlights:
+  - Adds procurement image set/reset support for the Azure provider.
+  - Consolidates the image type to regular sessions.
+- version: 2.91.0
+  date: '2026-05-28'
+  breaking: true
+  highlights:
+  - Implements linking of files during interactive session creation and in
+    `cloudos link`.
+  - Removes support for linking while resuming a paused interactive session.
+- version: 2.90.2
+  date: '2026-05-07'
+  breaking: false
+  highlights:
+  - Dockerfile fix for a release-automation issue; no package code changes.
+- version: 2.90.1
+  date: '2026-05-06'
+  breaking: false
+  highlights:
+  - Fixes `--array-parameter` for multiple occurrences.
+- version: 2.90.0
+  date: '2026-04-29'
+  breaking: false
+  highlights:
+  - Adds linking of multiple File Explorer folders or S3 paths at once.

@@ -1,0 +1,42 @@
+# AI crawler permissions for lifebit.ai
+# Format: proposed community spec for /.well-known/ai.txt
+# See also: /robots.txt and /llms.txt
+
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /glossary/
+Allow: /white-papers/
+Allow: /platform/
+
+# Named AI crawlers — explicit allow
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Citation preferences
+Citation-preferred: canonical-url
+Attribution-preferred: "Lifebit Biotech"
+Attribution-URL: https://lifebit.ai/
+
+# Contact for AI-training or citation questions
+Contact: https://lifebit.ai/
+Sitemap: https://lifebit.ai/sitemap_index.xml
+LLMs: https://lifebit.ai/llms.txt

@@ -1,0 +1,76 @@
+generated: '2026-07-19'
+method: derived
+source: https://github.com/lifebit-ai/cloudos-cli/blob/main/cloudos_cli/utils/errors.py
+format: json
+notes: >-
+  Lifebit publishes no OpenAPI description and no error reference page, so this
+  catalog is derived from the exception classes and status handling in the
+  first-party open-source client, cloudos-cli. The API does not use RFC 9457
+  application/problem+json; errors are plain JSON carrying a top-level
+  `message` field, which the client surfaces, falling back to the HTTP reason
+  phrase when the body is not JSON.
+envelope:
+  content_type: application/json
+  fields:
+  - name: message
+    description: Human-readable server error message.
+problems:
+- status: 400
+  title: Bad request
+  client_exception: BadRequestException
+  description: >-
+    Generic non-2xx handling. The client re-raises with the server `message`
+    when present, otherwise the HTTP reason phrase.
+  remediation: Inspect the returned `message`; correct the request payload or
+    query parameters.
+- status: 401
+  title: Not authorised
+  client_exception: NotAuthorisedException
+  description: >-
+    Missing or invalid apikey header. Verified live against
+    GET https://cloudos.lifebit.ai/api/v1/users/me.
+  remediation: Check the API key, and that the requested resource lives in the
+    same workspace as the teamId supplied.
+- status: 403
+  title: Job access denied
+  client_exception: JobAccessDeniedException
+  description: >-
+    Authenticated, but the job belongs to another user or the caller lacks the
+    required workspace permission.
+  remediation: Access only jobs owned by the authenticated account, or request
+    workspace permissions.
+- status: 504
+  title: Request timed out
+  client_exception: TimeOutException
+  description: The server exceeded the maximum time to process the request.
+  remediation: Retry the request; for long-running operations poll status
+    rather than blocking.
+domain_errors:
+- name: AccountNotLinkedException
+  description: >-
+    A pipeline repository URL cannot be imported because the source-control
+    account (GitHub/Bitbucket/GitLab) is not linked to the CloudOS workspace.
+  remediation: Link the repository account in the Lifebit Platform workspace
+    settings before importing.
+- name: JoBNotCompletedException
+  description: >-
+    Job results were requested for a job whose status is not `completed`.
+  remediation: Poll job status until it reports `completed` before fetching
+    results.
+- name: NoCloudForWorkspaceException
+  description: The workspace is not associated with a supported cloud provider.
+  remediation: Verify the workspace ID and its cloud configuration.
+- name: NoJobQueuesAvailableException
+  description: >-
+    No ready job queue exists for the requested workflow type (nextflow or
+    cromwell).
+  remediation: Create a queue with `cloudos queue create` or through the
+    Lifebit Platform UI.
+job_status_values:
+- completed
+- running
+- initialising
+- scheduled
+- failed
+- aborted
+- aborting

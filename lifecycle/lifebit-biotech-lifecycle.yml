@@ -1,0 +1,78 @@
+generated: '2026-07-19'
+method: derived
+source: https://github.com/lifebit-ai/cloudos-cli
+notes: >-
+  Lifebit publishes no API versioning policy, no deprecation policy, no SLA
+  page and no public status page. status.lifebit.ai, support.lifebit.ai and
+  help.lifebit.ai do not resolve. What is recorded below is derived from the
+  observable API surface and from the release discipline of the first-party
+  open-source client. No StatusPage or Deprecation pointer is emitted, because
+  neither exists.
+versioning:
+  scheme: uri-path
+  pattern: /api/{version}/{resource}
+  versions_in_use:
+  - v1
+  - v2
+  - v3
+  policy_url: null
+  description: >-
+    Versioning is per-resource, not global. v1, v2 and v3 prefixes are live
+    simultaneously — for example projects are reachable under both
+    /api/v1/projects and /api/v2/projects, jobs under /api/v1/jobs and
+    /api/v2/jobs, workflows under /api/v3/workflows. Older versions remain
+    addressable; no retirement schedule is published.
+client_versioning:
+  scheme: semver
+  current: 2.95.0
+  release_tooling: commitizen
+  changelog: changelog/lifebit-biotech-changelog.yml
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    RFC 8594 Sunset/Deprecation headers are not used and no deprecation policy
+    is published for the API. Breaking changes to the CLI are announced only in
+    the client CHANGELOG under a `Breaking:` heading (for example the removal
+    of `cloudos datasets link` in v2.95.0 and of `--mount` in v2.93.0).
+  observed_breaking_changes:
+  - version: 2.95.0
+    date: '2026-06-30'
+    change: Removed `cloudos datasets link`.
+  - version: 2.93.0
+    date: '2026-05-28'
+    change: Moved `cloudos link` under interactive-session; removed `--mount`.
+  - version: 2.91.0
+    date: '2026-05-28'
+    change: Removed linking while resuming a paused interactive session.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+status_page_probe:
+- url: https://status.lifebit.ai/
+  result: dns-nxdomain
+- url: https://support.lifebit.ai/
+  result: dns-nxdomain
+- url: https://help.lifebit.ai/
+  result: dns-nxdomain
+support:
+  channel: https://lifebit.ai/contact-us/
+  email: hello@lifebit.ai
+runtime_version_support:
+  nextflow:
+    aws:
+    - 22.10.8
+    - 24.04.4
+    - 25.04.8
+    - 25.10.4
+    aws_latest: 25.10.4
+    azure:
+    - 22.11.1-edge
+    hpc:
+    - 22.10.8
+  notes: >-
+    The client pins supported Nextflow versions per cloud. Platform-provided
+    workflows default to 22.10.8; user-imported workflows default to 24.04.4.
+deprecated_operations: []

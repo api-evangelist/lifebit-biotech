@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schema.org/",
+  "@type": "Organization",
+  "name": "Lifebit Biotech Ltd",
+  "alternateName": "Lifebit",
+  "url": "https://lifebit.ai/",
+  "description": "Federated Trusted Research Environment (TRE) platform for sovereign health AI. Data stays at source; compute moves to the data. Every output passes through an automated airlock controlled by the data custodian, not the vendor.",
+  "foundingDate": "2017",
+  "founder": {
+    "@type": "Person",
+    "name": "Maria Chatzou Dunford",
+    "jobTitle": "CEO",
+    "hasCredential": "PhD in Computational Biology"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "32-38 Leman Street",
+    "addressLocality": "London",
+    "postalCode": "E1 8EW",
+    "addressCountry": "GB"
+  },
+  "industry": ["Biotechnology", "Health Data Platform", "Federated Learning", "Sovereign AI"],
+  "keywords": [
+    "federated Trusted Research Environment",
+    "sovereign AI",
+    "federated learning",
+    "OMOP CDM harmonisation",
+    "airlock output disclosure",
+    "Five Safes framework",
+    "EHDS Article 50",
+    "FedRAMP authorised"
+  ],
+  "hasPatent": {
+    "@type": "CreativeWork",
+    "name": "Federated Computational Discovery Across Heterogeneous Biomedical Data",
+    "identifier": "US Patent 12,519,781"
+  },
+  "product": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Airlock Tower",
+      "description": "Automated output-disclosure control for federated TREs — the sixth safe.",
+      "releaseDate": "2026-04-28"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Agentic Federated TRE",
+      "description": "Fully agentic federated Trusted Research Environment.",
+      "releaseDate": "2026-01-12"
+    }
+  ],
+  "sitemap": "https://lifebit.ai/sitemap_index.xml",
+  "llms": "https://lifebit.ai/llms.txt",
+  "attributionPreferred": "Lifebit Biotech",
+  "attributionUrl": "https://lifebit.ai/"
+}

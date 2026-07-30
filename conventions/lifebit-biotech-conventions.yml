@@ -1,0 +1,95 @@
+generated: '2026-07-19'
+method: derived
+source: https://github.com/lifebit-ai/cloudos-cli
+docs: https://lifebit-ai.github.io/cloudos-cli/
+notes: >-
+  Cross-cutting request/response semantics of the Lifebit Platform (CloudOS)
+  REST API, derived from the first-party open-source client, cloudos-cli.
+  Lifebit publishes no OpenAPI description and no written API conventions
+  guide, so every entry below is grounded in observable client behaviour.
+base_url: https://cloudos.lifebit.ai/api
+authentication:
+  style: api-key-header
+  header: apikey
+  see: authentication/lifebit-biotech-authentication.yml
+tenancy:
+  model: workspace
+  parameter: teamId
+  in: query
+  required: true
+  description: >-
+    Nearly every operation is scoped to a workspace ("team") by a teamId query
+    parameter. Requests for resources outside the named workspace are rejected.
+versioning:
+  scheme: uri-path
+  versions_in_use:
+  - v1
+  - v2
+  - v3
+  pattern: /api/{version}/{resource}
+  description: >-
+    Version prefixes are per-resource rather than global — v1, v2 and v3 are in
+    concurrent use across the surface (for example /api/v1/projects,
+    /api/v2/projects and /api/v2/jobs, /api/v3/workflows). There is no
+    Accept-header or date-based versioning.
+  see: lifecycle/lifebit-biotech-lifecycle.yml
+pagination:
+  style: page-number
+  parameters:
+  - name: page
+    in: query
+    description: 1-based page number.
+  - name: pageSize
+    in: query
+    description: Items per page.
+  max_page_size: 100
+  default_page_size: 10
+  applies_to:
+  - /api/v1/projects
+  - /api/v2/projects
+  - /api/v2/jobs
+  - /api/v3/workflows
+  - /api/v2/datasets
+filtering:
+  parameters:
+  - name: search
+    in: query
+    description: Free-text name filter on projects and workflows.
+  - name: archived.status
+    in: query
+    description: Filter job listings by archived state.
+  - name: status
+    in: query
+    description: Filter job listings by job status (completed, running, failed, aborted).
+content_negotiation:
+  request_content_type: application/json
+  accept: application/json
+idempotency:
+  supported: false
+  notes: >-
+    Neither the API nor the client documents an idempotency key. Job submission
+    (POST /api/v2/jobs) is not idempotent — a repeated submission creates a new
+    job. No Idempotency pointer is emitted for this provider.
+request_tracing:
+  request_id_header: null
+  notes: No request-id or correlation header is set or surfaced by the client.
+rate_limiting:
+  documented: false
+  notes: >-
+    No published rate limits and no RateLimit/X-RateLimit response headers are
+    read by the client. Long-running polling loops in the client use a fixed
+    30-second interval for Cromwell status checks.
+error_envelope:
+  format: json
+  shape:
+    message: Human-readable error string returned by the server on failure.
+  description: >-
+    Errors are plain JSON, not RFC 9457 application/problem+json. The client
+    reads a top-level `message` field and falls back to the HTTP reason phrase
+    when absent.
+  see: errors/lifebit-biotech-problem-types.yml
+webhooks:
+  supported: false
+  notes: >-
+    No webhook, event-stream or callback surface is documented or exercised by
+    the client. Job completion is observed by polling job status.

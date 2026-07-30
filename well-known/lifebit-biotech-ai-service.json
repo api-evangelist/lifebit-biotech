@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "url": "https://lifebit.ai/ai/service.json",
+  "name": "Lifebit Federated TRE Platform",
+  "provider": {
+    "@type": "Organization",
+    "name": "Lifebit Biotech Ltd",
+    "url": "https://lifebit.ai/"
+  },
+  "serviceType": "Federated Trusted Research Environment for Sovereign Health AI",
+  "areaServed": ["United Kingdom", "European Union", "United States", "Canada", "Singapore", "Global"],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "National health programmes, biobanks, pharma R&D sponsors, academic health research institutions, ministries of health"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Lifebit product portfolio",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "Federated Trusted Research Environment",
+        "description": "Data stays at source. Compute moves to the data. Every output passes through an automated airlock."
+      },
+      {
+        "@type": "Service",
+        "name": "Airlock Tower — automated output disclosure",
+        "description": "The 'sixth safe' — automated inspection of every output before it leaves the environment."
+      },
+      {
+        "@type": "Service",
+        "name": "Agentic federated TRE",
+        "description": "Fully agentic research workflows executing across federated custodians."
+      },
+      {
+        "@type": "Service",
+        "name": "AI-automated OMOP CDM harmonisation",
+        "description": "AI-driven mapping to OMOP CDM v5.4 at population scale — 15-minute runs versus 12-18 month manual projects."
+      },
+      {
+        "@type": "Service",
+        "name": "Federated learning",
+        "description": "Model training across geographically-distributed health data without data movement."
+      }
+    ]
+  },
+  "termsOfService": "Engagement terms are quote-based and depend on deployment scope, regulatory jurisdiction, and data-custodian requirements.",
+  "isRelatedTo": [
+    "European Health Data Space (EHDS) Article 50",
+    "UK Office for National Statistics Five Safes framework",
+    "Health Insurance Portability and Accountability Act (HIPAA)",
+    "HITRUST CSF v11",
+    "FedRAMP",
+    "SOC 2 Type II",
+    "EU AI Act",
+    "OECD Recommendation on Health Data Governance"
+  ]
+}

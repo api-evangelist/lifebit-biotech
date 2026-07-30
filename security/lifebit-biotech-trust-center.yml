@@ -1,0 +1,61 @@
+generated: '2026-07-19'
+method: searched
+probe: true
+probe_result: >-
+  probe-security-programs.py reported trust=none because it checks
+  trust.<domain>, security.<domain> and /trust|/security|/compliance; Lifebit
+  publishes its trust center at the non-standard path /trust-center/. The page
+  was fetched and read directly, and names each certification explicitly.
+url: https://lifebit.ai/trust-center/
+alternate_url: https://lifebit.ai/lifebit-trust-center/
+certifications:
+- SOC 2 Type II
+- ISO/IEC 27001
+- ISO 9001
+- FedRAMP
+- Cyber Essentials Plus
+- HIPAA
+- GDPR
+- NHS Data Security and Protection Toolkit (DSPT)
+- G-Cloud 13
+- EHDEN
+- HITRUST CSF v11
+external_listings:
+- name: FedRAMP Marketplace
+  url: https://marketplace.fedramp.gov/products/FR2208837967/
+assurance_package:
+  name: Lifebit's approach to data governance and security
+  url: https://lifebit.ai/white-papers/lifebit-approach-to-data-governance-security/
+contact:
+  email: hello@lifebit.ai
+governance_posture: >-
+  Lifebit's security story is architectural as well as procedural: the
+  federated Trusted Research Environment keeps participant-level data inside
+  the custodian's own infrastructure, and an automated airlock — marketed as
+  the "sixth safe" on top of the UK ONS Five Safes framework — inspects every
+  proposed output before it can leave the environment. Disclosure control is
+  exercised by the data custodian rather than the vendor.
+evidence:
+- source: https://lifebit.ai/trust-center/
+  keywords:
+  - soc 2 type ii
+  - iso/iec 27001
+  - fedramp
+  - cyber essentials plus
+  - hipaa
+  - gdpr
+  - nhs dspt
+- source: https://lifebit.ai/llms.txt
+  keywords:
+  - hitrust csf v11
+  - fedramp authorised
+  - soc 2 type ii
+  - ehds article 50
+vulnerability_disclosure:
+  published: false
+  notes: >-
+    No RFC 9116 security.txt (404 on lifebit.ai), no responsible-disclosure or
+    vulnerability-disclosure page, and no bug bounty programme on HackerOne,
+    Bugcrowd or Intigriti was found. The trust center lists hello@lifebit.ai as
+    the general contact. No VulnerabilityDisclosure or Security pointer is
+    emitted for this provider.

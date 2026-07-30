@@ -1,0 +1,90 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: https://github.com/lifebit-ai/cloudos-cli
+notes: >-
+  Lifebit publishes no hosted or remote MCP server. Searches of the lifebit-ai
+  GitHub organisation, the npm @modelcontextprotocol namespace and the public
+  MCP registries returned no first-party server. This is a CANDIDATE tool list
+  only — an API Evangelist proposal, not a Lifebit claim. Because Lifebit
+  publishes no OpenAPI description, the candidate tools are grounded in the
+  REST endpoints exercised by the first-party open-source client, cloudos-cli,
+  and each tool names the endpoint it would wrap. Lifebit does market an
+  "agentic federated TRE" product, but exposes no public agent protocol
+  endpoint for it.
+server:
+  name: lifebit-cloudos
+  transport: http
+  url: null
+  base_api: https://cloudos.lifebit.ai/api
+  auth:
+    type: apiKey
+    in: header
+    name: apikey
+tools:
+- name: get_current_user
+  description: Return the authenticated user and their workspaces.
+  source_endpoint: GET /api/v1/users/me
+- name: list_projects
+  description: List workspace projects, with paging and name search.
+  source_endpoint: GET /api/v2/projects?teamId={workspaceId}
+- name: create_project
+  description: Create a new project in the workspace.
+  source_endpoint: POST /api/v1/projects
+- name: list_workflows
+  description: List available pipelines/workflows in the workspace.
+  source_endpoint: GET /api/v3/workflows?teamId={workspaceId}
+- name: list_job_queues
+  description: List job queues available for a workflow type.
+  source_endpoint: GET /api/v1/jobs?teamId={workspaceId}
+- name: submit_job
+  description: Submit a Nextflow job to a project and queue.
+  source_endpoint: POST /api/v2/jobs
+- name: get_job
+  description: Fetch a single job, including status and metadata.
+  source_endpoint: GET /api/v1/jobs/{jobId}?teamId={workspaceId}
+- name: list_jobs
+  description: List jobs in the workspace, filterable by status and archive state.
+  source_endpoint: GET /api/v2/jobs?teamId={workspaceId}
+- name: get_job_results
+  description: Fetch result data for a completed job.
+  source_endpoint: GET /api/v1/jobs/{jobId}/data
+- name: abort_job
+  description: Abort a running or initialising job.
+  source_endpoint: PUT /api/v2/jobs/{jobId}/abort
+- name: list_interactive_sessions
+  description: List interactive analysis sessions.
+  source_endpoint: GET /api/v3/interactive-sessions
+- name: create_interactive_session
+  description: Provision an interactive analysis session.
+  source_endpoint: POST /api/v1/interactive-sessions
+- name: resume_interactive_session
+  description: Resume a paused interactive session.
+  source_endpoint: PUT /api/v1/interactive-sessions/{sessionId}/resume
+- name: abort_interactive_session
+  description: Stop an interactive session.
+  source_endpoint: PUT /api/v1/interactive-sessions/{sessionId}/abort
+- name: list_datasets
+  description: List datasets in the workspace File Explorer.
+  source_endpoint: GET /api/v2/datasets
+- name: list_dataset_items
+  description: List files and folders inside a dataset folder.
+  source_endpoint: GET /api/v1/datasets/{folderId}/items
+- name: move_data_items
+  description: Move files or folders between locations.
+  source_endpoint: PUT /api/v1/dataItems/move
+- name: list_s3_bucket_contents
+  description: Browse a linked S3 bucket path.
+  source_endpoint: GET /api/v1/data-access/s3/bucket-contents
+- name: list_azure_container_contents
+  description: Browse a linked Azure Blob container path.
+  source_endpoint: GET /api/v1/data-access/azure/container-contents
+- name: run_wdl_workflow
+  description: Submit a WDL workflow to the Cromwell server.
+  source_endpoint: POST /api/v1/cromwell
+governance_note: >-
+  Any real deployment of these tools should treat job submission, abort, move
+  and delete operations as write/consequential actions requiring explicit
+  human approval, and must respect the workspace airlock: CloudOS is the
+  control plane for a Trusted Research Environment, and participant-level data
+  must not be surfaced to an agent context.

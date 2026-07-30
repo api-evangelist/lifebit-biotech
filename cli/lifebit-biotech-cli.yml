@@ -1,0 +1,136 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/lifebit-ai/cloudos-cli
+docs: https://lifebit-ai.github.io/cloudos-cli/
+name: cloudos
+description: >-
+  cloudos-cli is Lifebit's first-party, open-source Python library and command
+  line interface for the Lifebit Platform (CloudOS). It wraps the CloudOS REST
+  API at https://cloudos.lifebit.ai/api and covers workspace projects, job
+  queues, workflow/pipeline import and discovery, Nextflow and Cromwell/WDL job
+  submission and monitoring, bash array jobs, interactive analysis sessions,
+  dataset/file operations and procurement image configuration.
+package: cloudos-cli
+repository: https://github.com/lifebit-ai/cloudos-cli
+license: MIT
+requires: Python 3.9+
+install:
+- method: pip
+  command: pip install cloudos-cli
+- method: pip-upgrade
+  command: pip install --upgrade cloudos-cli
+- method: docker
+  command: docker run --rm -it quay.io/lifebitaiorg/cloudos-cli:latest
+- method: source
+  command: git clone https://github.com/lifebit-ai/cloudos-cli && pip install .
+- method: github-action
+  command: 'uses: lifebit-ai/action-cloudos-cli@main'
+authentication:
+  description: >-
+    An API key is supplied with --apikey, or stored per-profile in
+    ~/.cloudos/credentials via `cloudos configure`. The key is sent to the API
+    as an `apikey` request header. The target platform host defaults to
+    https://cloudos.lifebit.ai and is overridable per profile with
+    --cloudos-url.
+  flags:
+  - --apikey
+  - --cloudos-url
+  - --workspace-id
+  - --profile
+  credentials_file: ~/.cloudos/credentials
+command_groups:
+- group: configure
+  description: Manage named profiles and stored credentials.
+  commands:
+  - cloudos configure
+  - cloudos configure list-profiles
+  - cloudos configure remove-profile
+- group: project
+  description: Workspace project operations.
+  commands:
+  - cloudos project list
+  - cloudos project create
+- group: queue
+  description: Job queue management (AWS Batch).
+  commands:
+  - cloudos queue list
+  - cloudos queue create
+- group: workflow
+  description: Pipeline discovery and import.
+  commands:
+  - cloudos workflow list
+  - cloudos workflow import
+- group: job
+  description: Nextflow job submission, monitoring and lifecycle.
+  commands:
+  - cloudos job run
+  - cloudos job status
+  - cloudos list
+  - cloudos job results
+  - cloudos job clone
+  - cloudos job abort
+  - cloudos job details
+  - cloudos job workdir
+  - cloudos job logs
+  - cloudos job cost
+  - cloudos job related-analyses
+  - cloudos job archive
+  - cloudos job unarchive
+- group: bash
+  description: Shell script and array job execution.
+  commands:
+  - cloudos bash job
+  - cloudos bash array-job
+- group: interactive-session
+  description: Provision and manage interactive analysis environments.
+  commands:
+  - cloudos interactive-session list
+  - cloudos interactive-session create
+  - cloudos interactive-session status
+  - cloudos interactive-session pause
+  - cloudos interactive-session resume
+  - cloudos interactive-session link
+- group: datasets
+  description: File and folder operations across File Explorer, S3 and Azure Blob.
+  commands:
+  - cloudos datasets ls
+  - cloudos datasets mv
+  - cloudos datasets rename
+  - cloudos datasets cp
+  - cloudos datasets mkdir
+  - cloudos datasets rm
+- group: cromwell
+  description: WDL pipeline support and Cromwell server management.
+  commands:
+  - cloudos cromwell status
+  - cloudos cromwell start
+  - cloudos cromwell stop
+  - cloudos cromwell run
+- group: procurement
+  description: Organisation container image configuration.
+  commands:
+  - cloudos procurement images list
+  - cloudos procurement images set
+  - cloudos procurement images reset
+key_flows:
+- name: Submit and monitor a Nextflow job
+  steps:
+  - cloudos configure
+  - cloudos workflow list
+  - cloudos job run
+  - cloudos job status
+  - cloudos job results
+- name: Run a WDL pipeline through Cromwell
+  steps:
+  - cloudos cromwell start
+  - cloudos cromwell run
+  - cloudos cromwell stop
+- name: Work in an interactive analysis session
+  steps:
+  - cloudos interactive-session create
+  - cloudos interactive-session link
+  - cloudos interactive-session pause
+  - cloudos interactive-session resume
+also_usable_as: >-
+  The same distribution exposes a Python API (the cloudos_cli package) for
+  driving jobs and WDL pipelines from user scripts.

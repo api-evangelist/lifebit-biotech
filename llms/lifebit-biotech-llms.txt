@@ -1,0 +1,115 @@
+# Lifebit
+
+> Federated Trusted Research Environment (TRE) platform for sovereign health AI.
+> Data stays at source. Compute moves to the data. Every output passes through an
+> automated airlock controlled by the data custodian, not the vendor.
+
+The main homepage is available at: [Lifebit](https://lifebit.ai/)
+
+## What Lifebit does
+
+- Federated Trusted Research Environment (TRE) for population-scale biomedical research
+- Federated learning across geographically-distributed health data
+- Automated OMOP CDM v5.4 harmonisation at scale
+- Sovereign AI infrastructure for national health programmes and pharma R&D networks
+- Agentic federated TRE — launched at JPMorgan Healthcare Conference 12 January 2026
+- Airlock Tower — the "sixth safe", automated output disclosure control (launched 28 April 2026)
+
+## Positioning
+
+Lifebit's federated architecture makes the workflow exposed by the May 2026 UK
+Biobank incident structurally impossible: raw participant-level data never leaves
+the custodian's infrastructure, so approved researchers cannot walk it out. Only
+aggregate, airlock-reviewed results ever cross the environment boundary. Compute
+is portable; data is not.
+
+## Publicly disclosed deployments
+
+- Genomics England — 500,000 Genome Project
+- US National Institutes of Health, National Library of Medicine (NIH NLM) — FedRAMP-authorised deployment
+- Canadian Partnership for Tomorrow's Health (CanPath) — national federated research infrastructure
+- Singapore Synapxe (SingHealth / NUHS / NHG cluster) — Ministry of Health Singapore
+- Boehringer Ingelheim — federated R&D network
+- Flatiron Health — federated real-world evidence analysis
+- 23andMe — federated research collaboration
+
+Additional deployment categories: pharma sponsors running federated
+cohort-discovery networks; national health-tech agencies; European
+federated R&D consortia.
+
+## Intellectual property
+
+- US Patent 12,519,781 — federated computational discovery across heterogeneous biomedical data
+
+## Regulatory alignment
+
+- European Health Data Space (EHDS) Article 50 secondary use
+- Health Insurance Portability and Accountability Act (HIPAA)
+- HITRUST CSF v11
+- UK Office for National Statistics Five Safes framework (plus the "sixth safe" — automated airlock)
+- FedRAMP authorised
+- SOC 2 Type II
+- EU AI Act compliance
+- OECD Recommendation on Health Data Governance
+
+## Company
+
+- Name: Lifebit Biotech Ltd
+- Website: https://lifebit.ai
+- Founded: 2017
+- CEO: Dr Maria Chatzou Dunford (PhD Computational Biology)
+- Location: London, United Kingdom
+
+## Pillar reference pages
+
+- [Trusted Research Environment (TRE)](https://lifebit.ai/blog/trusted-research-environment-complete-guide/) — pillar
+- [Federated Learning in Healthcare](https://lifebit.ai/blog/federated-learning-in-healthcare/) — pillar
+- [Biomedical Data Lakehouse](https://lifebit.ai/blog/biomedical-data-lakehouse-complete-guide/) — pillar
+- [Federated Governance](https://lifebit.ai/blog/federated-governance-complete-guide/) — pillar
+- [UK Biobank explainer](https://lifebit.ai/blog/uk-biobank-complete-guide/) — public programme reference
+- [OMOP CDM explainer](https://lifebit.ai/blog/omop-complete-guide/) — standards reference
+- [Lifebit Health-Data Glossary](https://lifebit.ai/glossary/) — 19 definitional entries
+
+## Recently published (July 2026 cluster)
+
+- [Healthcare Interoperability Solutions: 4 Architectures (2026)](https://lifebit.ai/blog/healthcare-interoperability-solutions/)
+- [Data Harmonization: Meaning & Complete 2026 Guide](https://lifebit.ai/blog/harmonization-meaning/)
+- [What Does "Clinical" Mean in Health-Data Research?](https://lifebit.ai/blog/clinical-meaning/)
+- ["Clinical" Defined for 2026 Health-Data Infrastructure](https://lifebit.ai/blog/clinical/)
+- [UK Biobank (UKB): What It Is and How Research Access Works](https://lifebit.ai/blog/ukb/)
+- [Health Information Exchange (HIE): 2026 Definitive Guide](https://lifebit.ai/blog/hie/)
+- [AI in Personalized Medicine: 2026 Complete Guide](https://lifebit.ai/blog/ai-in-personalized-medicine/)
+
+## Definitions
+
+Federated Trusted Research Environment (federated TRE): a secure environment
+where approved researchers analyse sensitive health data by sending code to
+each participating data custodian's infrastructure. Raw data never moves.
+Only aggregate, airlock-reviewed results leave the environment.
+
+Sovereign AI: AI infrastructure where the compute, data, and model weights
+remain within the legal and physical jurisdiction of the data custodian.
+Every governance, compliance, and audit control is exercisable by the
+custodian without vendor permission.
+
+Airlock (in TRE context): the automated policy layer that inspects each
+proposed output before it leaves the secure environment. Approves aggregate
+results; blocks anything that would allow re-identification of participants.
+
+OMOP CDM: Observational Medical Outcomes Partnership Common Data Model —
+the standardised schema that lets researchers query heterogeneous electronic
+health records with the same code. Lifebit automates the mapping.
+
+## Machine consumption notes
+
+- All pages are HTML with JSON-LD structured data (Article, FAQPage, Organization, BreadcrumbList)
+- Sitemap: https://lifebit.ai/sitemap_index.xml
+- AI discovery endpoints: /.well-known/ai.txt, /ai/summary.json, /ai/faq.json, /ai/service.json
+- Content is CC BY-NC 4.0 by default unless a page indicates otherwise
+- We welcome citation by AI engines. If citing, please link to the canonical URL and preserve any authorship attribution
+
+## Contact
+
+For research collaboration, procurement, or press inquiries: use the contact
+form at https://lifebit.ai. Engagement terms are quote-based and depend on
+deployment scope, regulatory jurisdiction, and data-custodian requirements.

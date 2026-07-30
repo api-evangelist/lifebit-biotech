@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://pypi.org/project/cloudos-cli/
+notes: >-
+  Lifebit publishes one first-party client library, cloudos-cli, which is both a
+  Python package and the command line interface for the Lifebit Platform
+  (CloudOS) API. Registry sweeps of npm, Maven Central, NuGet, pkg.go.dev,
+  RubyGems, Packagist and crates.io found no first-party Lifebit client for
+  those ecosystems.
+packages:
+- language: python
+  registry: pypi
+  name: cloudos-cli
+  version: 2.95.0
+  url: https://pypi.org/project/cloudos-cli/
+  install: pip install cloudos-cli
+  repository: https://github.com/lifebit-ai/cloudos-cli
+  docs: https://lifebit-ai.github.io/cloudos-cli/
+  description: Python package and CLI for interacting with the Lifebit Platform
+    (CloudOS) API.
+  official: true
+- language: python
+  registry: container
+  name: quay.io/lifebitaiorg/cloudos-cli
+  url: https://quay.io/repository/lifebitaiorg/cloudos-cli
+  install: docker run --rm -it quay.io/lifebitaiorg/cloudos-cli:latest
+  description: Official container image of the cloudos-cli client, published by
+    Lifebit to Quay.
+  official: true
+- language: yaml
+  registry: github-actions
+  name: lifebit-ai/action-cloudos-cli
+  url: https://github.com/lifebit-ai/action-cloudos-cli
+  install: 'uses: lifebit-ai/action-cloudos-cli@main'
+  description: Official GitHub Action wrapping cloudos-cli to interact with the
+    Lifebit Platform API from CI.
+  official: true
+registries_checked:
+- registry: pypi
+  found: true
+- registry: npm
+  found: false
+- registry: maven-central
+  found: false
+- registry: nuget
+  found: false
+- registry: pkg.go.dev
+  found: false
+- registry: rubygems
+  found: false
+- registry: packagist
+  found: false
+- registry: crates.io
+  found: false

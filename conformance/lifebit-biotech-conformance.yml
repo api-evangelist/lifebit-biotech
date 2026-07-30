@@ -1,0 +1,114 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifebit.ai/trust-center/
+also_source: https://lifebit.ai/llms.txt
+notes: >-
+  Lifebit's compliance posture is unusually well published for a company of its
+  size — the Trust Center names each certification explicitly, and the machine
+  surface at /llms.txt repeats the regulatory alignment list. Certifications
+  below are recorded as the provider states them; API-level standards are
+  derived from the observable behaviour of the CloudOS API via the first-party
+  client, cloudos-cli.
+certifications:
+- id: soc2-type-ii
+  name: SOC 2 Type II
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: iso-27001
+  name: ISO/IEC 27001
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: iso-9001
+  name: ISO 9001
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: fedramp
+  name: FedRAMP
+  conforms: true
+  evidence: https://marketplace.fedramp.gov/products/FR2208837967/
+- id: cyber-essentials-plus
+  name: Cyber Essentials Plus
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: hipaa
+  name: HIPAA
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: gdpr
+  name: GDPR
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: nhs-dspt
+  name: NHS Data Security and Protection Toolkit (DSPT)
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: g-cloud-13
+  name: G-Cloud 13
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/
+- id: ehden
+  name: EHDEN certification
+  conforms: true
+  evidence: Named on https://lifebit.ai/trust-center/ — alignment with FAIR
+    principles for standardised European health data infrastructure.
+- id: hitrust-csf-v11
+  name: HITRUST CSF v11
+  conforms: true
+  evidence: Listed under regulatory alignment in https://lifebit.ai/llms.txt
+domain_standards:
+- id: omop-cdm-5.4
+  name: OMOP Common Data Model v5.4
+  conforms: true
+  evidence: Automated OMOP CDM v5.4 harmonisation is a named product capability.
+- id: five-safes
+  name: UK ONS Five Safes framework
+  conforms: true
+  evidence: Stated framework for the Trusted Research Environment, extended
+    with an automated airlock described as the "sixth safe".
+- id: ehds-article-50
+  name: European Health Data Space (EHDS) Article 50 secondary use
+  conforms: true
+  evidence: Listed under regulatory alignment in https://lifebit.ai/llms.txt
+- id: eu-ai-act
+  name: EU AI Act
+  conforms: true
+  evidence: Listed under regulatory alignment in https://lifebit.ai/llms.txt
+- id: nextflow
+  name: Nextflow workflow standard
+  conforms: true
+  evidence: First-class pipeline runtime in the CloudOS API and CLI.
+- id: wdl-cromwell
+  name: WDL / Cromwell
+  conforms: true
+  evidence: Dedicated /api/v1/cromwell endpoints and `cloudos cromwell`
+    command group.
+api_standards:
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 surface; the API authenticates with an apikey header.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on lifebit.ai.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are plain application/json with a `message` field, not
+    application/problem+json.
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI description is published for the CloudOS API.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on lifebit.ai.
+- id: llms-txt
+  conforms: true
+  evidence: https://lifebit.ai/llms.txt is published and substantive.
+- id: schema-org-json-ld
+  conforms: true
+  evidence: JSON-LD Service, FAQPage, Article and Organization documents served
+    from https://lifebit.ai/ai/.
+- id: pagination
+  conforms: true
+  evidence: Consistent page/pageSize query parameters across list endpoints.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency key is documented or sent by the first-party client.

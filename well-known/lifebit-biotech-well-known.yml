@@ -1,0 +1,82 @@
+generated: '2026-07-19'
+method: searched
+source: https://lifebit.ai/llms.txt
+notes: >-
+  Lifebit runs a deliberate agent-discovery surface on the marketing host
+  lifebit.ai: /llms.txt, /.well-known/ai.txt and a set of JSON-LD AI endpoints
+  under /ai/. It publishes no RFC 9116 security.txt and no OAuth/OIDC discovery
+  documents. The application host cloudos.lifebit.ai is a single-page app whose
+  catch-all route answers HTTP 200 with the SPA shell for every unknown path, so
+  its /.well-known/* 200s are soft 404s and are recorded as such rather than
+  saved.
+hosts:
+- host: https://lifebit.ai
+  documents:
+  - path: /llms.txt
+    status: 200
+    file: ../llms/lifebit-biotech-llms.txt
+    kind: llms.txt
+  - path: /.well-known/ai.txt
+    status: 200
+    file: lifebit-biotech-ai.txt
+    kind: ai.txt (proposed community spec for AI crawler permissions)
+  - path: /ai/summary.json
+    status: 200
+    file: lifebit-biotech-ai-summary.json
+    kind: JSON-LD company summary
+  - path: /ai/service.json
+    status: 200
+    file: lifebit-biotech-ai-service.json
+    kind: schema.org Service + OfferCatalog
+  - path: /ai/faq.json
+    status: 200
+    file: lifebit-biotech-ai-faq.json
+    kind: schema.org FAQPage
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /sitemap_index.xml
+    status: 200
+    kind: sitemap index
+- host: https://cloudos.lifebit.ai
+  note: SPA catch-all returns 200 text/html for all unknown paths; treat as soft 404.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    soft_404: true
+  - path: /llms.txt
+    status: 200
+    soft_404: true
+ai_crawler_policy:
+  source: https://lifebit.ai/.well-known/ai.txt
+  posture: allow
+  named_agents_allowed:
+  - GPTBot
+  - ChatGPT-User
+  - ClaudeBot
+  - anthropic-ai
+  - PerplexityBot
+  - Google-Extended
+  - CCBot
+  citation_preferred: canonical-url
+  attribution_preferred: Lifebit Biotech
+  content_license: CC BY-NC 4.0 by default unless a page indicates otherwise
