@@ -86,6 +86,13 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: IssueTracker
+  url: https://github.com/lifebit-ai/cloudos-cli/issues
+- type: Releases
+  url: https://github.com/lifebit-ai/cloudos-cli/releases
+- type: License
+  name: GPL-3.0
+  url: https://github.com/lifebit-ai/cloudos-cli/blob/main/LICENSE
 - type: Website
   url: https://lifebit.ai/
 - type: DeveloperPortal
