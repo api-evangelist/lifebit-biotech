@@ -2,16 +2,12 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: https://github.com/lifebit-ai/cloudos-cli
-notes: >-
-  Lifebit publishes no hosted or remote MCP server. Searches of the lifebit-ai
-  GitHub organisation, the npm @modelcontextprotocol namespace and the public
-  MCP registries returned no first-party server. This is a CANDIDATE tool list
-  only — an API Evangelist proposal, not a Lifebit claim. Because Lifebit
-  publishes no OpenAPI description, the candidate tools are grounded in the
-  REST endpoints exercised by the first-party open-source client, cloudos-cli,
-  and each tool names the endpoint it would wrap. Lifebit does market an
-  "agentic federated TRE" product, but exposes no public agent protocol
-  endpoint for it.
+notes: Lifebit publishes no hosted or remote MCP server. Searches of the lifebit-ai GitHub organisation,
+  the npm @modelcontextprotocol namespace and the public MCP registries returned no first-party server.
+  This is a CANDIDATE tool list only — an API Evangelist proposal, not a Lifebit claim. Because Lifebit
+  publishes no OpenAPI description, the candidate tools are grounded in the REST endpoints exercised by
+  the first-party open-source client, cloudos-cli, and each tool names the endpoint it would wrap. Lifebit
+  does market an "agentic federated TRE" product, but exposes no public agent protocol endpoint for it.
 server:
   name: lifebit-cloudos
   transport: http
@@ -82,9 +78,13 @@ tools:
 - name: run_wdl_workflow
   description: Submit a WDL workflow to the Cromwell server.
   source_endpoint: POST /api/v1/cromwell
-governance_note: >-
-  Any real deployment of these tools should treat job submission, abort, move
-  and delete operations as write/consequential actions requiring explicit
-  human approval, and must respect the workspace airlock: CloudOS is the
-  control plane for a Trusted Research Environment, and participant-level data
-  must not be surfaced to an agent context.
+governance_note: 'Any real deployment of these tools should treat job submission, abort, move and delete
+  operations as write/consequential actions requiring explicit human approval, and must respect the workspace
+  airlock: CloudOS is the control plane for a Trusted Research Environment, and participant-level data
+  must not be surfaced to an agent context.'
+deployment:
+  mode: none
+  verified: derived
+  tools: 20
+  checked: '2026-08-12'
+  source: catalog MCP census
