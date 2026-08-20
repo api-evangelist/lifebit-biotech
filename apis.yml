@@ -67,6 +67,12 @@ apis:
   - Genomics
   - Workflow Orchestration
   - Bioinformatics
+  - Job
+  - Datasets
+  tags_raw:
+  - Genomics
+  - Workflow Orchestration
+  - Bioinformatics
   - Jobs
   - Datasets
   properties:
