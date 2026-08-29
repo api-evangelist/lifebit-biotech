@@ -18,6 +18,19 @@ description: 'Lifebit Biotech Ltd is a London-founded (2017) health-data infrast
   National Library of Medicine, CanPath, Singapore Synapxe, Boehringer Ingelheim,
   Flatiron Health and 23andMe.'
 url: https://raw.githubusercontent.com/api-evangelist/lifebit-biotech/refs/heads/main/apis.yml
+deliveryModel:
+  model: open-core
+  license: GPL-3.0
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
