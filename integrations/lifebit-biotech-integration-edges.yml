@@ -9,6 +9,9 @@ checked:
 - https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/suppliers
 - https://www.crowncommercial.gov.uk/agreements
 - https://www.ncsc.gov.uk/cyberessentials/search
+- https://www.ga4gh.org/community/organizational-members/
+- https://www.ga4gh.org/our-products/
+- https://www.ga4gh.org/our-products/implementations/
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -77,6 +80,33 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-uk-g-cloud-suppliers.py
   first_seen: '2026-10-21'
+- partner_name: GA4GH (Global Alliance for Genomics and Health)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.ga4gh.org/community/organizational-members/
+  category: genomic data-sharing standards alliance membership
+  contract_reference:
+    register: GA4GH organisational members (ga4gh.org/community/organizational-members/)
+    standard: GA4GH standards (htsget, DRS, TES, WES, Beacon, Passports, refget, VRS, Phenopackets)
+    spec_file: null
+    role: ga4gh-organisational-member
+    registered_name: Lifebit Biotech Limited
+    register_country: United Kingdom
+    register_member_type: Companies Information Technology
+    register_id: https://lifebit.ai/
+    matched_domain: lifebit.ai
+    matched_by: domain
+    signal_note: 'participation only: organisational membership of the Global Alliance for Genomics and Health (the
+      member list links each member''s website, the link is the identity); GA4GH runs no conformance certification,
+      listing is not conformance'
+    detected_by: sweep-ga4gh-genomics-standards.py
+    detected: '2026-10-22'
+  detected_by: sweep-ga4gh-genomics-standards.py
+  first_seen: '2026-10-22'
 source:
 - https://raw.githubusercontent.com/18F/fedramp-data/4b73d9247fd6360759960e4690e3ce4ca858e0fa/data/data.json
 - https://govramp.org/program-participants
